@@ -1,5 +1,5 @@
 :root {
-    /* Colors */
+    /* Colors (Dark - Default) */
     --bg-color: #0A0A0B;
     --surface-color: #161618;
     --accent-color: #2962FF;
@@ -19,6 +19,17 @@
     
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.light {
+    --bg-color: #F5F5F7;
+    --surface-color: #FFFFFF;
+    --accent-color: #2962FF;
+    --accent-glow: rgba(41, 98, 255, 0.1);
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.7);
 }
 
 * {
@@ -108,6 +119,35 @@ header nav {
     opacity: 1;
     color: var(--accent-color);
 }
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 1.2rem;
+    margin-right: var(--space-md);
+}
+
+.theme-toggle:hover {
+    background: var(--surface-color);
+    border-color: var(--accent-color);
+    transform: rotate(15deg);
+}
+
+.theme-toggle .sun-icon { display: none; }
+.theme-toggle .moon-icon { display: block; }
+
+:root.light .theme-toggle .sun-icon { display: block; }
+:root.light .theme-toggle .moon-icon { display: none; }
 
 /* Buttons */
 .btn-primary {
